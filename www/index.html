@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>документация по началу работы</title>
+    <!-- CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/css/prettify.css" rel="stylesheet">
+    <!-- Custom styles CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar hidden-print my_affix" role="complementary" data-spy="affix" data-offset-top="10" data-offset-bottom="200">
+                    <ul class="nav sidenav">
+                        <li class="active"><a href="#introduction">Перед началом</a></li>
+                        <li class="active"><a href="#concept">Концепция работы</a></li>
+                        <li class="active"><a href="#startwork">Начало работы</a></li>
+                        <li class="active"><a href="#task">Выполнение задачи</a></li>
+                        <li class="active"><a href="#konflict">Решение конфликтов</a></li>
+                        <li class="active"><a href="#dev">Дополнительно</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <section class="header">
+                    <h1>Как подключиться к проету</h1>
+                </section>
+                <section class="section">
+                    <h2 id="introduction">Перед началом работы</h2>
+                    <h4>Hi customer!</h4>
+                    <p> Что нужно для работы
+                        <ul>
+                            <li>Установить Git: <a href="http://git-scm.com/">http://git-scm.com/</a></li>
+                            <li>Потренеруйся в работе с git: <a href="http://githowto.com/ru?author=1">http://githowto.com/ru?author=1</a></li>
+                            <li>Установить Denvera: <a href="http://www.denwer.ru/">http://www.denwer.ru/</a></li>
+                            <li>Установить еще что ......</li>
+                        </ul>
+                    </p>
+                    <!-- Customization -->
+                    <h2 id="concept">Концепция</h2>
+                    <p>Концепция работы отображена на рисунке </p>
+                    <img src="assets/images/git.png" alt="">
+                    <p>
+                    </p>
+                    <h2 id="startwork">Начало работы</h2>
+                    <p>
+                        Открой GitBASH или GitCMD они появятся после установки git перейди в свою рабоую директорию например home. Склонируй себе проект
+                        <br>
+                        <code> git clone git://site1.ru/site.ru.git</code>
+                        <br> ее можно получить на сервере. Можно конуретно указать куда склонировать
+                        <br>
+                        <code> git clone git://site1.ru/site.ru.git name</code>
+                        <br> теперь узнай задачу которую требуеться выполнить вот <a href="">тут</a> (нет ссылки пока что)
+                    </p>
+                    <h2 id="task">Выполнение задачи</h2>
+                    <p> Что делает участник проекта. Для решение проблемы следует создать ветку <strong> имя ветки делай осмысленое</strong>
+                        <br>
+                        <code>git  checkout -b testing dev</code>
+                        <br>берем текушее состояние ветки dev добавь ее на сервер
+                        <br>
+                        <code>git push origin testing</code>
+                        <br> Получи последню версию на сервере
+                        <br>
+                        <code>git push origin testing</code>
+                        <br> Выполнив работу при этом делая коментарий выполняй команды индексации и комита
+                        <br>
+                        <code>git add name_file </code> или добавь все
+                        <code>git add .</code>.
+                        <br>Добавь осмысленый коментарий
+                        <br>
+                        <code>git commit -m "coment"</code>
+                        <br>далее получи следует обьединить твою ветку с веткой dev
+                        <br><code>git pull</code>
+                        <br> при возникновение конфликта переходи <a href="#konflict">Решение конфликтов</a>
+                        <br> Если нет конфликтов и ветки обьединились делай push
+                        <br> <code>git push origin testing</code>
+                    </p>
+                    <p>
+                        Что делает лидер группы он проверяет, что задача выполненена правильно. получаем все обновление
+                        <br>
+                        <code>git pull</code>
+                        <br> получаем списки веток 
+                        <br>
+                        <code>git branch -a</code>
+                        <br> переходим в ветку исправлной ошибки
+                        <br>
+                        <code>git checkout testing</code>
+                        <br> убеждаемся что все ошибки исправлены далее переходим на ветку <b>test</b> и делаем слияние (ветка test аналогича ветки dev)
+                        <br>
+                        <code>git checkout test</code>
+                        <br>
+                        <code>git merge test testing</code>
+                        <br> теперь века test должен проверить тестировшик после положительного результата тестировшика следует слить все с веткой dev
+                        <br>
+                        <code>git checkout dev</code>
+                        <br>
+                        <code>git merge dev testing</code>
+                        <br> теперь стоит обновить данные на рабочем сервере для этого стоит зайти на рабочий сервер, который стоит на ветке <b>prod</b> и выполнить команду
+                        <br>
+                        <code>git pull</code>
+                        <br> обновления зальються на сервер.
+                    </p>
+                    <h2 id="konflict">Решение конфликтов</h2>
+                    <p>
+                        конфликт возникает когда два разработчика работают над одним файлом для этого система выдаст сообшение об конфликте. можно проверить статус
+                        <br>
+                        <code>git status</code>
+                        <br> файл в котором возник конфликт при вызове git pull
+                        <br>
+                        <code>
+                    	 CONFLICT (content): Merge conflict in text.txt <br>
+                         Automatic merge failed; fix conflicts and then commit the result.
+                         </code>
+                        <br> структура файла
+                        <br>
+                        <code>1 рабочий написал эту строчку <br>
+						<<<<<<< HEAD <br>
+						это написал 2 разработчик<br>
+						=======<br>
+						это написал первый разработчик <br>
+						>>>>>>> e6aa57e8899a870e398dd25109a58224d5be5f87
+						</code> <br>HEAD указывает что сейчас на сервере после ====== показан то вызвало конфликт. Для устранеие сушествует два способа. Первый, заходим в файл и удаляем все что не нужно и вручную обьединяем то то есть. Второй, использовать специальные утилиты для разрешение конфликтов они удобны тем что показвают что изменилось, подсвечивают строки, дают наглядность.
+                        <br> После исправления следует слелать комит и залить.
+                    </p>
+                    <h2 id="dop">Дополнительно</h2>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!--HL -->
+    <script src="assets/js/prettify/prettify.js"></script>
+    <!-- Custom scripts -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
